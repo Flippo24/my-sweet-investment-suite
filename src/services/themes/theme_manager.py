@@ -91,9 +91,9 @@ class ThemeManager:
         try:
             with open(self.THEMES_FILE, 'w') as file:
                 json.dump({"themes": self.themes, "active_theme": self.active_theme}, file, indent=4)
-            #self.logger.log("ThemeManager", "Themes saved successfully", level="DEBUG")
+            self.logger.log("ThemeManager", "Themes saved successfully", level="DEBUG")
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Error saving themes: {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Error saving themes: {e}", level="ERROR")
             raise e
 
     def add_theme(self, name, author, project_url, theme_url, file_path):
@@ -107,9 +107,9 @@ class ThemeManager:
                 "file_path": file_path
             })
             self.save_themes()
-            #self.logger.log("ThemeManager", f"Theme '{name}' added successfully", level="INFO")
+            self.logger.log("ThemeManager", f"Theme '{name}' added successfully", level="INFO")
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Error adding theme '{name}': {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Error adding theme '{name}': {e}", level="ERROR")
             raise e
 
     def remove_theme(self, theme_name):
@@ -120,14 +120,14 @@ class ThemeManager:
                 file_path = theme.get("file_path")
                 if file_path and os.path.exists(file_path):
                     os.remove(file_path)
-                    #self.logger.log("ThemeManager", f"Theme file {file_path} removed", level="DEBUG")
+                    self.logger.log("ThemeManager", f"Theme file {file_path} removed", level="DEBUG")
                 self.themes = [t for t in self.themes if t["name"] != theme_name]
                 if self.active_theme == theme_name:
                     self.active_theme = None
                 self.save_themes()
-                #self.logger.log("ThemeManager", f"Theme '{theme_name}' removed successfully", level="INFO")
+                self.logger.log("ThemeManager", f"Theme '{theme_name}' removed successfully", level="INFO")
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Error removing theme '{theme_name}': {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Error removing theme '{theme_name}': {e}", level="ERROR")
             raise e
 
     def set_active_theme(self, theme_name):
@@ -135,9 +135,9 @@ class ThemeManager:
         try:
             self.active_theme = theme_name
             self.save_themes()
-            #self.logger.log("ThemeManager", f"Active theme set to '{theme_name}'", level="INFO")
+            self.logger.log("ThemeManager", f"Active theme set to '{theme_name}'", level="INFO")
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Error setting active theme to '{theme_name}': {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Error setting active theme to '{theme_name}': {e}", level="ERROR")
             raise e
 
     def download_theme(self, url, save_path):
@@ -147,44 +147,44 @@ class ThemeManager:
                 content = response.read().decode()
             with open(save_path, 'w') as file:
                 file.write(content)
-            #self.logger.log("ThemeManager", f"Theme downloaded successfully from {url}", level="INFO")
+            self.logger.log("ThemeManager", f"Theme downloaded successfully from {url}", level="INFO")
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Error downloading theme from {url}: {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Error downloading theme from {url}: {e}", level="ERROR")
             raise e
 
     def load_active_theme(self):
         """Lädt und wendet das aktive Theme an."""
         try:
             if not self.active_theme:
-                #self.logger.log("ThemeManager", "No active theme set.", level="ERROR")
+                self.logger.log("ThemeManager", "No active theme set.", level="ERROR")
                 raise ValueError("No active theme set.")
 
             theme = next((t for t in self.themes if t["name"] == self.active_theme), None)
             if not theme:
-                #self.logger.log("ThemeManager", f"Active theme '{self.active_theme}' not found in themes.json.", level="ERROR")
+                self.logger.log("ThemeManager", f"Active theme '{self.active_theme}' not found in themes.json.", level="ERROR")
                 raise ValueError(f"Active theme '{self.active_theme}' not found in themes.json.")
 
             # Überprüfen, ob die Theme-Datei existiert
             if not os.path.exists(theme["file_path"]):
                 if theme.get("theme_url"):
-                    #self.logger.log("ThemeManager", f"Theme file for '{self.active_theme}' not found, attempting download", level="WARNING")
+                    self.logger.log("ThemeManager", f"Theme file for '{self.active_theme}' not found, attempting download", level="WARNING")
                     self.download_theme(theme["theme_url"], theme["file_path"])
                 else:
                     raise FileNotFoundError(f"Theme file '{theme['file_path']}' not found and no URL provided.")
 
             theme_data = self.load_theme(theme["file_path"])
             stylesheet = self.apply_theme(theme_data)
-            #self.logger.log("ThemeManager", f"Active theme '{self.active_theme}' loaded successfully", level="INFO")
+            self.logger.log("ThemeManager", f"Active theme '{self.active_theme}' loaded successfully", level="INFO")
             return stylesheet
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Error loading active theme: {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Error loading active theme: {e}", level="ERROR")
             raise e
 
     def setStylesheet(self):
         try:
             stylesheet = self.load_active_theme()
             QApplication.instance().setStyleSheet(stylesheet)
-            #self.logger.log("ThemeManager", "Stylesheet set successfully", level="INFO")
+            self.logger.log("ThemeManager", "Stylesheet set successfully", level="INFO")
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Failed to set stylesheet: {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Failed to set stylesheet: {e}", level="ERROR")
             pass

@@ -1,4 +1,5 @@
-from PySide6.QtWidgets import QDialog, QFormLayout, QLineEdit, QPushButton, QHBoxLayout, QVBoxLayout, QDialogButtonBox
+import os
+from PySide6.QtWidgets import QDialog, QFormLayout, QLineEdit, QPushButton, QHBoxLayout, QVBoxLayout, QDialogButtonBox, QFileDialog
 
 class ThemeDialog(QDialog):
     def __init__(self, parent=None):
@@ -39,7 +40,10 @@ class ThemeDialog(QDialog):
     def browse_file(self):
         file_path, _ = QFileDialog.getOpenFileName(self, "Select Theme JSON File", "", "JSON Files (*.json)")
         if file_path:
-            self.file_path_input.setText(file_path)
+            # Basisverzeichnis: aktuelles Arbeitsverzeichnis, kann angepasst werden
+            base_dir = os.getcwd()
+            relative_path = os.path.relpath(file_path, base_dir)
+            self.file_path_input.setText(relative_path)
 
     def get_data(self):
         return {

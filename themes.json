@@ -5,14 +5,21 @@
             "author": "ayu",
             "project_url": "https://github.com/ayu-theme/vscode-ayu",
             "theme_url": "https://raw.githubusercontent.com/ayu-theme/vscode-ayu/refs/heads/master/ayu-light-bordered.json",
-            "file_path": "/home/booker/Projekte/InvestmentSuite/ayu-light-bordered.json"
+            "file_path": "src/resources/themes/ayu-light-bordered.json"
         },
         {
             "name": "ayu-dark-bordered",
             "author": "ayu",
             "project_url": "https://github.com/ayu-theme/vscode-ayu",
             "theme_url": "https://raw.githubusercontent.com/ayu-theme/vscode-ayu/refs/heads/master/ayu-dark-bordered.json",
-            "file_path": "/home/booker/Projekte/InvestmentSuite/ayu-dark-bordered.json"
+            "file_path": "src/resources/themes/ayu-dark-bordered.json"
+        },
+        {
+            "name": "ayu-mirage-bordered",
+            "author": "ayu",
+            "project_url": "",
+            "theme_url": "",
+            "file_path": "src/resources/themes/ayu-mirage-bordered.json"
         }
     ],
     "active_theme": "ayu-dark-bordered"
