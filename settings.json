@@ -1,0 +1,123 @@
+{
+    "workspace": {
+        "eab4c92e-f901-41a8-bdfb-784b14cb04aa": {
+            "type": "MainWindow",
+            "objectname": "eab4c92e-f901-41a8-bdfb-784b14cb04aa",
+            "geometry": {
+                "x": 3885,
+                "y": 1691,
+                "width": 1353,
+                "height": 829
+            },
+            "name": "My sweet Investment Suite",
+            "is_fullscreen": false,
+            "widgets": {
+                "36b82706-4e9a-421c-b076-b17a6c443229": {
+                    "class": "CustomButtonWidget",
+                    "objectname": "36b82706-4e9a-421c-b076-b17a6c443229",
+                    "geometry": {
+                        "x": 80,
+                        "y": 75,
+                        "width": 155,
+                        "height": 300
+                    },
+                    "parameters": {
+                        "title": "Titel",
+                        "description": "Beschreibung"
+                    },
+                    "children": {}
+                },
+                "2caa4a3e-efa9-44b1-b056-8749c01b845f": {
+                    "class": "CustomButtonWidget",
+                    "objectname": "2caa4a3e-efa9-44b1-b056-8749c01b845f",
+                    "geometry": {
+                        "x": 290,
+                        "y": 110,
+                        "width": 155,
+                        "height": 300
+                    },
+                    "parameters": {
+                        "title": "Titel",
+                        "description": "Beschreibung"
+                    },
+                    "children": {}
+                },
+                "fa2e7eac-098e-4a64-9146-bcb063ce9055": {
+                    "class": "CustomButtonWidget",
+                    "objectname": "fa2e7eac-098e-4a64-9146-bcb063ce9055",
+                    "geometry": {
+                        "x": 595,
+                        "y": 85,
+                        "width": 150,
+                        "height": 300
+                    },
+                    "parameters": {
+                        "title": "Button Widget",
+                        "description": "Beschreibung"
+                    },
+                    "children": {}
+                },
+                "38847904-20ac-47b1-99c2-fbc45a83fe2e": {
+                    "class": "CustomDataWidget",
+                    "objectname": "38847904-20ac-47b1-99c2-fbc45a83fe2e",
+                    "geometry": {
+                        "x": 825,
+                        "y": 100,
+                        "width": 150,
+                        "height": 300
+                    },
+                    "parameters": {
+                        "text": "Custom Data Widget"
+                    },
+                    "children": {}
+                },
+                "6972dc11-270c-49fc-a31c-024a0d86c756": {
+                    "class": "CustomButtonWidget",
+                    "objectname": "6972dc11-270c-49fc-a31c-024a0d86c756",
+                    "geometry": {
+                        "x": 995,
+                        "y": 100,
+                        "width": 235,
+                        "height": 395
+                    },
+                    "parameters": {
+                        "title": "Button Widget",
+                        "description": "Beschreibung"
+                    },
+                    "children": {}
+                }
+            }
+        },
+        "120a8229-24ae-400a-ba6e-c08ea947be38": {
+            "type": "MainWindow",
+            "objectname": "120a8229-24ae-400a-ba6e-c08ea947be38",
+            "geometry": {
+                "x": 3865,
+                "y": 344,
+                "width": 966,
+                "height": 602
+            },
+            "name": "My sweet Investment Suite",
+            "is_fullscreen": false,
+            "widgets": {}
+        }
+    },
+    "logger": {
+        "logcount": 1000,
+        "persist_to_file": false,
+        "log_file": "app.log"
+    },
+    "broker": {
+        "selected_broker": "Interactive Brokers",
+        "ib": {
+            "ip": "127.0.0.1",
+            "port": 7496,
+            "clientId": 1,
+            "read_only": true,
+            "connect_at_startup": true
+        },
+        "simulator": {
+            "read_only": true
+        }
+    }
+}

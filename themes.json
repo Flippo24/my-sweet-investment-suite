@@ -1,0 +1,19 @@
+{
+    "themes": [
+        {
+            "name": "ayu-light-bordered",
+            "author": "ayu",
+            "project_url": "https://github.com/ayu-theme/vscode-ayu",
+            "theme_url": "https://raw.githubusercontent.com/ayu-theme/vscode-ayu/refs/heads/master/ayu-light-bordered.json",
+            "file_path": "/home/booker/Projekte/InvestmentSuite/ayu-light-bordered.json"
+        },
+        {
+            "name": "ayu-dark-bordered",
+            "author": "ayu",
+            "project_url": "https://github.com/ayu-theme/vscode-ayu",
+            "theme_url": "https://raw.githubusercontent.com/ayu-theme/vscode-ayu/refs/heads/master/ayu-dark-bordered.json",
+            "file_path": "/home/booker/Projekte/InvestmentSuite/ayu-dark-bordered.json"
+        }
+    ],
+    "active_theme": "ayu-dark-bordered"
+}

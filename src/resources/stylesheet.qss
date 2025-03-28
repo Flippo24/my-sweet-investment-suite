@@ -1,0 +1,56 @@
+/* Standard-Hintergrund des QGraphicsView */
+MainWindow {
+    background: #0b0e14;
+}
+
+MainWindow[appState="Edit"] {
+    background: #0b0e14;
+}
+
+/* Hintergrund mit Gitter, wenn MainWindow im editMode ist */
+MainWindow[appState="Edit"] QGraphicsView {
+    background-color:rgb(20, 32, 56);
+    background-image: 
+        linear-gradient(to right,rgb(3, 227, 227) 1px, transparent 1px),
+        linear-gradient(to bottom,rgb(15, 226, 226) 1px, transparent 1px);
+    background-size: 20px 20px; /* Größe des Gitterkästchens */
+}
+
+/* Standard-Stil für BaseWidget */
+BaseWidget {
+    border: none;
+    background-color: #0b0e14;
+}
+
+/* BaseWidget mit Hover */
+BaseWidget[hover="true"] {
+    border: 2px solid yellow;
+}
+
+/* BaseWidget im EditMode */
+BaseWidget[appState="Edit"] {
+    border: 2px solid rgb(226, 250, 108);
+}
+
+/* BaseWidget im EditMode und Hover */
+BaseWidget[appState="Edit"][hover="true"] {
+    border: 2px solid rgb(244, 255, 43);
+}
+
+/* Button-Stil basierend auf BaseWidget-Properties */
+BaseWidget QPushButton {
+    background-color: lightgray;
+    border: 1px solid black;
+}
+
+BaseWidget[hover="true"] QPushButton {
+    background-color: lightblue;
+}
+
+BaseWidget[appState="Edit"] QPushButton {
+    background-color: pink;
+}
+
+BaseWidget[appState="Edit"][hover="true"] QPushButton {
+    background-color: orange;
+}

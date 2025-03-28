@@ -1,0 +1,16 @@
+[project]
+name = "my-sweet-investment-suite"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ib-async",
+    "psutil>=7.0.0",
+    "pyside6>=6.8.3",
+    "qframelesswindow",
+]
+
+[tool.uv.sources]
+ib-async = { git = "https://github.com/Flippo24/ib_async" }
+qframelesswindow = { git = "https://github.com/Flippo24/qframelesswindow" }
