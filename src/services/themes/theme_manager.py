@@ -16,9 +16,9 @@ class ThemeManager:
         self.active_theme = None
         try:
             self.load_themes()
-            #self.logger.log("ThemeManager", "Themes loaded successfully", level="INFO")
+            self.logger.log("ThemeManager", "Themes loaded successfully", level="INFO")
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Error loading themes: {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Error loading themes: {e}", level="ERROR")
             pass 
 
     def load_template(self):
@@ -26,10 +26,10 @@ class ThemeManager:
         try:
             with open(self.template_path, 'r') as file:
                 template = file.read()
-            #self.logger.log("ThemeManager", "Template loaded successfully", level="DEBUG")
+            self.logger.log("ThemeManager", "Template loaded successfully", level="DEBUG")
             return template
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Error loading template from {self.template_path}: {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Error loading template from {self.template_path}: {e}", level="ERROR")
             raise e
 
     def load_theme(self, theme_path):
@@ -37,10 +37,10 @@ class ThemeManager:
         try:
             with open(theme_path, 'r') as file:
                 theme = json.load(file)
-            #self.logger.log("ThemeManager", f"Theme loaded from {theme_path}", level="DEBUG")
+            self.logger.log("ThemeManager", f"Theme loaded from {theme_path}", level="DEBUG")
             return theme
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Error loading theme from {theme_path}: {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Error loading theme from {theme_path}: {e}", level="ERROR")
             raise e
 
     def apply_theme_on_css(self, template, colors):
@@ -55,10 +55,10 @@ class ThemeManager:
             template = self.load_template()
             colors = theme.get("colors", {})
             stylesheet = self.apply_theme_on_css(template, colors)
-            #self.logger.log("ThemeManager", "Theme applied successfully", level="DEBUG")
+            self.logger.log("ThemeManager", "Theme applied successfully", level="DEBUG")
             return stylesheet
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Error applying theme: {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Error applying theme: {e}", level="ERROR")
             raise e
 
     def save_qss(self, output_path, stylesheet):
@@ -66,9 +66,9 @@ class ThemeManager:
         try:
             with open(output_path, 'w') as file:
                 file.write(stylesheet)
-            #self.logger.log("ThemeManager", f"Stylesheet saved to {output_path}", level="INFO")
+            self.logger.log("ThemeManager", f"Stylesheet saved to {output_path}", level="INFO")
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Error saving stylesheet to {output_path}: {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Error saving stylesheet to {output_path}: {e}", level="ERROR")
             raise e
 
     def load_themes(self):
@@ -79,12 +79,12 @@ class ThemeManager:
                     data = json.load(file)
                     self.themes = data.get("themes", [])
                     self.active_theme = data.get("active_theme")
-                #self.logger.log("ThemeManager", "Themes loaded from file", level="DEBUG")
+                self.logger.log("ThemeManager", "Themes loaded from file", level="DEBUG")
             else:
-                #self.logger.log("ThemeManager", f"Theme file {self.THEMES_FILE} does not exist. Using defaults.", level="WARNING")
+                self.logger.log("ThemeManager", f"Theme file {self.THEMES_FILE} does not exist. Using defaults.", level="WARNING")
                 pass
         except Exception as e:
-            #self.logger.log("ThemeManager", f"Error loading themes from file: {e}", level="ERROR")
+            self.logger.log("ThemeManager", f"Error loading themes from file: {e}", level="ERROR")
             raise e
 
     def save_themes(self):
