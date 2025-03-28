@@ -9,7 +9,8 @@ class ThemeManager:
     THEMES_FILE = "themes.json"
 
     def __init__(self, template_path="src/resources/themes/template.qss"):
-        #elf.logger = QApplication.instance().logger  # Logger aus der Application abrufen
+        self.logger = QApplication.instance().logger  # Logger aus der Application abrufen
+
         self.template_path = template_path
         self.themes = []
         self.active_theme = None
